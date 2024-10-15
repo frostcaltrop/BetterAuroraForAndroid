@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOAA Overview"
+        android:textSize="40sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:id="@+id/overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOAA Overview"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonRealtimeCoronagraph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Realtime Coronagraph"
+        android:onClick="openRealtimeCoronagraph"
+        app:layout_constraintTop_toBottomOf="@id/overview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/buttonSolarWindPrediction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Solar Wind Prediction"
+        android:onClick="openSolarWindPrediction"
+        app:layout_constraintTop_toBottomOf="@id/buttonRealtimeCoronagraph"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Index"
+        android:onClick="openIndex"
+        app:layout_constraintTop_toBottomOf="@id/buttonSolarWindPrediction"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonSolarWindData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Solar Wind Data"
+        android:onClick="openSolarWindData"
+        app:layout_constraintTop_toBottomOf="@id/buttonIndex"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonAurora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aurora"
+        android:onClick="openAurora"
+        app:layout_constraintTop_toBottomOf="@id/buttonSolarWindData"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
