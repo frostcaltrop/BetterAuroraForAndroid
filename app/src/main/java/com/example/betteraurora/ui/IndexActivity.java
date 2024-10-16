@@ -92,14 +92,16 @@ public class IndexActivity extends AppCompatActivity {
     }
 
     private void initBarChart(BarChart barChart) {
-        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+//        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+//        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+//            barChart.setBackgroundColor(Color.WHITE);
+//            barChart.setNoDataTextColor(Color.BLACK);
+//        } else {
+//            barChart.setBackgroundColor(Color.BLACK);
+//            barChart.setNoDataTextColor(Color.WHITE);
+//        }
             barChart.setBackgroundColor(Color.WHITE);
             barChart.setNoDataTextColor(Color.BLACK);
-        } else {
-            barChart.setBackgroundColor(Color.BLACK);
-            barChart.setNoDataTextColor(Color.WHITE);
-        }
         barChart.setNoDataText("Loading");
     }
 

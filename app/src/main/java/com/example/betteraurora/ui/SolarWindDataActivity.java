@@ -57,16 +57,16 @@ public class SolarWindDataActivity extends AppCompatActivity {
     }
 
     private void initScatterChart(ScatterChart scatterChart) {
-        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
-
-            scatterChart.setBackgroundColor(Color.WHITE);
-            scatterChart.setNoDataTextColor(Color.BLACK);
-        } else {
-
-            scatterChart.setBackgroundColor(Color.BLACK);
-            scatterChart.setNoDataTextColor(Color.WHITE);
-        }
+//        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+//        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+//            scatterChart.setBackgroundColor(Color.WHITE);
+//            scatterChart.setNoDataTextColor(Color.BLACK);
+//        } else {
+//            scatterChart.setBackgroundColor(Color.BLACK);
+//            scatterChart.setNoDataTextColor(Color.WHITE);
+//        }
+        scatterChart.setBackgroundColor(Color.WHITE);
+        scatterChart.setNoDataTextColor(Color.BLACK);
         scatterChart.setNoDataText("Loading");
     }
     private void initScatterCharts() {
