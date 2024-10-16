@@ -31,6 +31,7 @@ import com.example.betteraurora.ui.QWeatherMapActivity;
 import com.example.betteraurora.ui.RealtimeCoronagraphActivity;
 import com.example.betteraurora.ui.SolarWindDataActivity;
 import com.example.betteraurora.ui.SolarWindPredictionActivity;
+import com.example.betteraurora.ui.WorldWeatherMapActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonAurora).setOnClickListener(v -> openAurora());
         findViewById(R.id.buttonForecast).setOnClickListener(v-> openForecast());
         findViewById(R.id.buttonLightPollution).setOnClickListener(v -> openLightPollution());
-        findViewById(R.id.buttonWeatherMap).setOnClickListener(v -> openQWeatherMap());
+        findViewById(R.id.buttonQWeatherMap).setOnClickListener(v -> openQWeatherMap());
+        findViewById(R.id.buttonWorldWeatherMap).setOnClickListener(v -> openWorldWeatherMap());
         overviewText = findViewById(R.id.SolarWind);
         scaleText = findViewById(R.id.scale);
         runnable = new Runnable() {
@@ -84,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
         handler.post(runnable);
     }
 
+    private void openWorldWeatherMap() {
+        Intent intent = new Intent(this, WorldWeatherMapActivity.class);
+        startActivity(intent);
+    }
 
 
     @Override

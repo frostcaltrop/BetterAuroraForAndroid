@@ -122,12 +122,23 @@
         android:layout_marginTop="16dp" />
 
     <Button
-        android:id="@+id/buttonWeatherMap"
+        android:id="@+id/buttonQWeatherMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="QWeather Map"
         android:onClick="openQWeatherMap"
         app:layout_constraintTop_toBottomOf="@id/buttonLightPollution"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonWorldWeatherMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="World Weather Map"
+        android:onClick="openWorldWeatherMap"
+        app:layout_constraintTop_toBottomOf="@id/buttonQWeatherMap"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
