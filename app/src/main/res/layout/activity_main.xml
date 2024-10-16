@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,12 +23,23 @@
         android:layout_marginTop="40dp" />
 
     <TextView
-        android:id="@+id/overview"
+        android:id="@+id/SolarWind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NOAA Overview"
+        android:text="Loading SolarWind Data"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loading NOAA Scale"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/SolarWind"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp" />
@@ -35,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="Realtime Coronagraph"
         android:onClick="openRealtimeCoronagraph"
-        app:layout_constraintTop_toBottomOf="@id/overview"
+        app:layout_constraintTop_toBottomOf="@id/scale"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
@@ -84,4 +99,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
+    <Button
+        android:id="@+id/buttonForecast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3-DAY Forecast"
+        android:onClick="openForecast"
+        app:layout_constraintTop_toBottomOf="@id/buttonAurora"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonLightPollution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Light Pollution Map"
+        android:onClick="openLightPollution"
+        app:layout_constraintTop_toBottomOf="@id/buttonForecast"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonWeatherMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QWeather Map"
+        android:onClick="openQWeatherMap"
+        app:layout_constraintTop_toBottomOf="@id/buttonLightPollution"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
