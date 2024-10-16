@@ -77,33 +77,30 @@ public class IndexActivity extends AppCompatActivity {
             public void onResponse(retrofit2.Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
                 try (InputStream inputStream = response.body().byteStream()){
                     Bitmap ae = BitmapFactory.decodeStream(inputStream);
-                    imageView1.setImageBitmap(ae);
+                    runOnUiThread(()->imageView1.setImageBitmap(ae));
                 }
                 catch (Exception e) {
                     Log.e("AE", "Error processing image stream", e);
                 }
             }
-
             @Override
             public void onFailure(retrofit2.Call<ResponseBody> call, Throwable t) {
                 Log.e("AE", "Error processing image stream", t);
-                imageView1.setImageResource(R.drawable.load_failed);
+                runOnUiThread(()->imageView1.setImageResource(R.drawable.load_failed));
             }
         });
     }
 
-    private void initBarChart(BarChart scatterChart) {
+    private void initBarChart(BarChart barChart) {
         int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
-
-            scatterChart.setBackgroundColor(Color.WHITE);
-            scatterChart.setNoDataTextColor(Color.BLACK);
+            barChart.setBackgroundColor(Color.WHITE);
+            barChart.setNoDataTextColor(Color.BLACK);
         } else {
-
-            scatterChart.setBackgroundColor(Color.BLACK);
-            scatterChart.setNoDataTextColor(Color.WHITE);
+            barChart.setBackgroundColor(Color.BLACK);
+            barChart.setNoDataTextColor(Color.WHITE);
         }
-        scatterChart.setNoDataText("Loading");
+        barChart.setNoDataText("Loading");
     }
 
     private void fetchAndDisplayKp() {

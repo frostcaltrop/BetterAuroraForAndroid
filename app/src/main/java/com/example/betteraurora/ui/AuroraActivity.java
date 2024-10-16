@@ -58,7 +58,7 @@ public class AuroraActivity extends AppCompatActivity implements ImageLoader.Ima
             @Override
             public void onFailure(Call<List<AnimationEntry>> call, Throwable t) {
                 Log.e("Aurora", "Failed to fetch Dynamic Aurora pics", t);
-                imageView2.setImageResource(R.drawable.load_failed);
+                runOnUiThread(()->imageView2.setImageResource(R.drawable.load_failed));
             }
         });
 
@@ -75,7 +75,7 @@ public class AuroraActivity extends AppCompatActivity implements ImageLoader.Ima
             @Override
             public void onFailure(Call<List<AnimationEntry>> call, Throwable t) {
                 Log.e("RealtimeCoronagraph", "Failed to fetch Static Aurora pic", t);
-                imageView1.setImageResource(R.drawable.load_failed);
+                runOnUiThread(()->imageView1.setImageResource(R.drawable.load_failed));
             }
         });
     }

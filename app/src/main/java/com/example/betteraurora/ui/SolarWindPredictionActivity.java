@@ -70,7 +70,7 @@ public class SolarWindPredictionActivity extends AppCompatActivity implements Im
                 if (response.isSuccessful() && response.body() != null) {
                     try (InputStream inputStream = response.body().byteStream()){
                         Bitmap huxt = BitmapFactory.decodeStream(inputStream);
-                        imageView2.setImageBitmap(huxt);
+                        runOnUiThread(()->imageView2.setImageBitmap(huxt));
                     }
                     catch (Exception e) {
                         Log.e("HUXt", "Error processing image stream", e);
@@ -81,7 +81,7 @@ public class SolarWindPredictionActivity extends AppCompatActivity implements Im
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.e("HUXt", "Error loading image", t);
-                imageView2.setImageResource(R.drawable.load_failed);
+                runOnUiThread(()->imageView2.setImageResource(R.drawable.load_failed));
             }
         });
     }
