@@ -37,6 +37,7 @@
         <activity android:name=".ui.LightPollutionActivity"/>
         <activity android:name=".ui.QWeatherMapActivity"/>
         <activity android:name=".ui.WorldWeatherMapActivity"/>
+        <activity android:name=".ui.WindyMapActivity"/>
     </application>
 
 </manifest>

@@ -31,6 +31,7 @@ import com.example.betteraurora.ui.QWeatherMapActivity;
 import com.example.betteraurora.ui.RealtimeCoronagraphActivity;
 import com.example.betteraurora.ui.SolarWindDataActivity;
 import com.example.betteraurora.ui.SolarWindPredictionActivity;
+import com.example.betteraurora.ui.WindyMapActivity;
 import com.example.betteraurora.ui.WorldWeatherMapActivity;
 
 import org.json.JSONException;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonLightPollution).setOnClickListener(v -> openLightPollution());
         findViewById(R.id.buttonQWeatherMap).setOnClickListener(v -> openQWeatherMap());
         findViewById(R.id.buttonWorldWeatherMap).setOnClickListener(v -> openWorldWeatherMap());
+        findViewById(R.id.buttonWindyMap).setOnClickListener(v -> openWindyMap());
         overviewText = findViewById(R.id.SolarWind);
         scaleText = findViewById(R.id.scale);
         runnable = new Runnable() {
@@ -86,6 +88,18 @@ public class MainActivity extends AppCompatActivity {
         handler.post(runnable);
     }
 
+    private void openWindyMap() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION}, 2);
+        }
+        else {
+            Intent intent = new Intent(this, WindyMapActivity.class);
+            startActivity(intent);
+        }
+    }
+
     private void openWorldWeatherMap() {
         Intent intent = new Intent(this, WorldWeatherMapActivity.class);
         startActivity(intent);
@@ -95,9 +109,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1 || requestCode == 2){
+        if (requestCode == 1){
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Intent intent = new Intent(this, QWeatherMapActivity.class);
+                startActivity(intent);
+            }
+            else {
+                runOnUiThread(()->Toast.makeText(this, "Location permission is required to open QWeatherMap", Toast.LENGTH_SHORT).show());
+            }
+        }
+        else if (requestCode == 2){
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Intent intent = new Intent(this, WindyMapActivity.class);
                 startActivity(intent);
             }
             else {
